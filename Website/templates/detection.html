@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DeepFake</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+
+  <body>
+    <section class="one">
+      <header>
+        <a href="#" class="logo"
+          ><img src="static/face.jpg" width="50px" />DeepFake Detector</a
+        >
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detection.html">Detection</a></li>
+          <li><a href="about.html">About us</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <h2>Upload video</h2>
+        <h3>
+          Here you can upload your video to detect weather the video is Fake or
+          Real
+        </h3>
+        <br />
+        <div id="submit-form">
+          <input
+            id="file-input"
+            type="file"
+            id="myFile"
+            name="filename"
+            accept=".mp4"
+          />
+          <button id="upload-btn"><b>Upload</b></button>
+
+          <br />
+        </div>
+        <div class="containAll hidden">
+          <div class="containLoader">
+            <div class="circleGroup circle-1"></div>
+            <div class="circleGroup circle-2"></div>
+            <div class="circleGroup circle-3"></div>
+            <div class="circleGroup circle-4"></div>
+            <div class="circleGroup circle-5"></div>
+            <div class="circleGroup circle-6"></div>
+            <div class="circleGroup circle-7"></div>
+            <div class="circleGroup circle-8"></div>
+
+            <div class="innerText">
+              <p>loading...</p>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="result hidden">
+          <h2>
+            According to our model your video is
+            <span class="result-value"></span>
+          </h2>
+        </div>
+      </div>
+      <video class="video hidden" width="800" height="300" controls></video>
+      <img src="static/detection.png" class="three" width="500px" />
+    </section>
+
+    <script>
+      const input = document.getElementById("file-input");
+      const video = document.querySelector(".video");
+      const videoSource = document.createElement("source");
+      const logo = document.querySelector(".three");
+      input.addEventListener("change", function () {
+        const files = this.files || [];
+
+        if (!files.length) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          logo.classList.add("hidden");
+          video.classList.remove("hidden");
+          videoSource.setAttribute("src", e.target.result);
+          video.appendChild(videoSource);
+          video.load();
+          video.play();
+        };
+
+        reader.onprogress = function (e) {
+          console.log("progress: ", Math.round((e.loaded * 100) / e.total));
+        };
+
+        reader.readAsDataURL(files[0]);
+      });
+    </script>
+    <script>
+      const HOST_URL = "http://localhost:5000/";
+      const fileInput = document.querySelector("#file-input");
+      const uploadButton = document.querySelector("#upload-btn");
+      const progressBarContainer = document.querySelector(".containAll");
+      const progressBar = document.querySelector(".progress-bar");
+
+      const resultElement = document.querySelector(".result");
+      let file;
+
+      fileInput.addEventListener("change", (e) => {
+        file = e?.srcElement?.files?.[0];
+      });
+
+      uploadButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        resultElement.classList.add("hidden");
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append("video", file);
+
+        try {
+          progressBarContainer.classList.remove("hidden");
+
+          const result = await fetch(HOST_URL, {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await result.json();
+
+          showResult(data.prediction_label);
+
+          console.log(data);
+        } catch (e) {
+          console.log(e);
+        }
+      });
+
+      function showResult(result) {
+        const resultElement = document.querySelector(".result");
+        const resultValueElement = document.querySelector(".result-value");
+
+        resultElement.classList.remove("hidden");
+
+        resultValueElement.innerHTML = result;
+        progressBarContainer.classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>

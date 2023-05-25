@@ -1,0 +1,427 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'open sans', sans-serif;
+}
+
+.containAll {
+    display: flex;
+  
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .containAll .containLoader {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    margin: auto;
+  }
+  .containAll .containLoader .circleGroup {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .containAll .containLoader .circle-1 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 30ms;
+    animation-delay: 30ms;
+  }
+  .containAll .containLoader .circle-2 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 60ms;
+    animation-delay: 60ms;
+  }
+  .containAll .containLoader .circle-3 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 90ms;
+    animation-delay: 90ms;
+  }
+  .containAll .containLoader .circle-4 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 120ms;
+    animation-delay: 120ms;
+  }
+  .containAll .containLoader .circle-5 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 150ms;
+    animation-delay: 150ms;
+  }
+  .containAll .containLoader .circle-6 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 180ms;
+    animation-delay: 180ms;
+  }
+  .containAll .containLoader .circle-7 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 210ms;
+    animation-delay: 210ms;
+  }
+  .containAll .containLoader .circle-8 {
+    border: 7px solid dodgerblue;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid transparent;
+    -webkit-animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    animation: rotate 1.2s cubic-bezier(0, 0.58, 1, 0.3) infinite;
+    -webkit-animation-delay: 240ms;
+    animation-delay: 240ms;
+  }
+  .containAll .containLoader .innerText {
+    position: absolute;
+    font-family: "Quicksand", sans-serif;
+    bottom: -40px;
+    -webkit-animation: flash 1.2s ease-in-out infinite;
+            animation: flash 1.2s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @-webkit-keyframes rotate {
+    50% {
+      border: 1px solid dodgerblue;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent;
+    }
+    100% {
+      transform: rotatez(360deg);
+    }
+  }
+  
+  @keyframes rotate {
+    50% {
+      border: 1px solid dodgerblue;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent;
+    }
+    100% {
+      transform: rotatez(360deg);
+    }
+  }
+  @-webkit-keyframes flash {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes flash {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.one {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px;
+    background: #fff;
+    transition: 0.5;
+    background-color: #fff;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: dodgerblue;
+}
+
+header .logo {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.5s;
+    animation-name: color-name;
+    animation-duration: 6s;
+    animation-iteration-count: 3;
+}
+
+@keyframes color-name {
+    0% {
+        color: #fff;
+    }
+    50% {
+        color: black;
+    }
+}
+
+header .logo span {
+    color: #fff;
+}
+
+header ul {
+    display: flex;
+    gap: 40px;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #fff;
+    transition: 0.5s;
+}
+
+header img {
+    color: #fff;
+    margin: -9px 5px;
+}
+
+.content {
+    position: relative;
+    max-width: 700px;
+    z-index: 10;
+}
+
+.content h3 {
+    font-size: 2em;
+    color: #333;
+    font-weight: 200;
+    transition: 0.5s;
+}
+
+.content h2 {
+    font-size: 3em;
+    color: dodgerblue;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.content button {
+    position: relative;
+    background: dodgerblue;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 35px;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 40px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.content input {
+    position: relative;
+    background: #fff;
+    color: dodgerblue;
+    border: none;
+    outline: none;
+    padding: 15px 35px;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 40px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 40px;
+    width: 300px;
+}
+
+.three {
+    position: absolute;
+    right: 100px;
+    max-width: 800;
+}
+
+section img {
+    border-radius: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-container>div {
+    text-align: center;
+    font-size: 30px;
+}
+
+#name {
+    color: dodgerblue;
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+    border-style: groove;
+    border-color: black;
+    border-radius: 50%;
+    border-style: double;
+}
+
+section table th {
+    font-size: 2rem;
+    color: #fff;
+}
+
+section table,
+th,
+td {
+    border: 3px solid #333;
+    font-size: 1.5rem;
+}
+
+.second {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px;
+    background: #fff;
+    transition: 0.5;
+    background-color: #d7e5fa;
+}
+
+.second .ab {
+    position: relative;
+    right: -35rem;
+    top: -16rem;
+}
+
+#first {
+    width: max-content;
+}
+
+.two {
+    border-radius: 50%;
+}
+
+#myFile {
+    width: 50%;
+    background-color: dodgerblue;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+#file-input {
+    color: #d7e5fa;
+    background-color: dodgerblue;
+    width: 50%;
+}
+
+header ul li a:hover {
+    color: black;
+    box-shadow: 0px 4px 0px 0px;
+    background: #d7e5fa;
+}
+
+.content button:hover {
+    color: black;
+}
+
+.video {
+    width: 600px;
+}
+
+.container {
+    height: 25px;
+    background-color: #CCC;
+    position: relative;
+    border-radius: 7px;
+}
+
+.container .progress-bar {
+    position: absolute;
+    height: 100%;
+    border-radius: 7px;
+    background-color: dodgerblue;
+}
+
+#play-animation {
+    animation: progress-animation 5s forwards;
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
