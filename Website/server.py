@@ -16,11 +16,6 @@ def detection():
     return render_template('detection.html')
 
 
-@app.route('/about.html', methods=['POST', 'GET'])
-def about():
-    return render_template('about.html')
-
-
 @app.route('/', methods=['POST', 'GET'])
 def predict():
     if request.method == 'POST':
